@@ -9,7 +9,11 @@ You can use this image as a sidecar for Vault to notify the process whenever the
 Just deploy the image as a sidecar and make sure to enable a shared process namespace so the image can see the target process:
 
 ```yaml
-
+- image: "laugmanuel/inotify-sighup-sidecar"
+  name: inotify-sighup-sidecar
+  volumeMounts:
+    - name: k8s-secret-with-file-to-watch
+      mountPath: /inotifywait/
 ```
 
 ## Configuration
